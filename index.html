@@ -29,25 +29,23 @@
             </md-select>
         </div>
     </div>
-    <md-grid-list ng-model="typeIndex" ng-show="typeIndex != null" md-cols-sm="1" md-cols="3"
-                  md-row-height-sm="1:1" md-row-height="1:1"
-                  md-gutter="15px" md-gutter-sm="3px" md-gutter-gt-sm="5px">
-        <md-grid-tile ng-repeat="occasion in resultObject.occasionTypes[typeIndex].occasions" class="gray"
-                      md-rowspan="1" md-colspan="1" md-colspan-sm="1">
-            <md-grid-tile-header>
-                <div layout-padding>
-                    {{occasion.name}}
-                </div>
-            </md-grid-tile-header>
-            <div layout="column" layout-align="center center">
-                <img ng-src="{{occasion.imageRep.url || ''}}">
-            </div>
-            <md-grid-tile-footer>
-                <h3>#{{$index + 1}}</h3>
-            </md-grid-tile-footer>
-        </md-grid-tile>
-    </md-grid-list>
 
+    <div layout="row" layout-margin layout-wrap ng-model="typeIndex" ng-show="typeIndex != null">
+        <div flex="30" flex-sm="100" ng-repeat="occasion in resultObject.occasionTypes[typeIndex].occasions"
+             class="gray">
+            <div layout-padding class="blue text-sm">
+                <span>{{occasion.name}}</span>
+            </div>
+            <div layout="row" layout-align="start center">
+                <div layout-padding class="text-sm">
+                    <span>#{{$index + 1}}</span>
+                </div>
+                <div offset="30" layout="column" layout-padding  layout-align="center center">
+                    <img ng-src="{{occasion.imageRep.url || ''}}" class="picture-sm">
+                </div>
+            </div>
+        </div>
+    </div>
 
     <script src="bower_components/angular/angular.min.js"></script>
     <script src="bower_components/angular-animate/angular-animate.min.js"></script>

@@ -7,7 +7,7 @@ md-grid-list {
 .yellow {
     background: #ffff8d; }
 .blue {
-    background: #84ffff; }
+    background: #7f9ff9; }
 .purple {
     background: #b388ff; }
 .red {
@@ -21,8 +21,22 @@ md-grid-tile {
 .material-icons.md-12 {
     font-size: 12px; }
 
-.md-button.search-btn {
-    min-height: 0px;
-    min-width: 0px;
-    height: 24px;
+img.picture-sm {
+    width: 32px;
+    height: 32px;
+}
+
+[layout-margin] > [flex] {
+    margin: 3px; }
+
+@media (max-width: 599px){
+    [layout-margin] > [flex-sm] {
+        margin: 1px;
+    }
+}
+
+@media (max-width: 599px) {
+    .text-sm {
+        font-size: 12px;
+    }
 }
