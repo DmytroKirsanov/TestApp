@@ -4,8 +4,6 @@
         .controller("pageController", ["$scope", "$http", function($scope, $http){
 
             $scope.resultObject;
-            $scope.occasionType;
-            $scope.typeIndex;
             $scope.errorMessage;
 
             getObject();
@@ -21,10 +19,6 @@
                     $scope.errorMessage = "Response status: " + response.status
                         + " " + response.statusText;
                 });
-            };
-
-            $scope.getTypeIndex = function(value){
-                $scope.typeIndex = value;
             };
         }])
 })();

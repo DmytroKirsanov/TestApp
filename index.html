@@ -10,40 +10,35 @@
     <link rel="stylesheet" href="style.css"/>
 </head>
 <body ng-app="occasionApp" ng-controller="pageController">
-    <md-toolbar class="md-toolbar-tools">
-        <div layout="row" layout-align="center center">
-            <div>
-                <span class="md-flex">My Test Task</span>
-            </div>
+
+    <md-toolbar>
+        <div class="md-toolbar-tools">
+            <md-button class="md-icon-button" aria-label="Settings">
+                <md-icon md-font-icon="material-icons">cake</md-icon>
+            </md-button>
+            <h2>
+                <span>My Test Mission</span>
+            </h2>
         </div>
     </md-toolbar>
+
     <div layout="row" layout-align="center center">
         <div ng-hide="errorMessage == null">
-            {{errorMessage}}
-        </div>
-        <div ng-hide="errorMessage != null">
-            <md-select ng-model="occasionType" placeholder="Occasion Type">
-                <md-option ng-repeat="occasionType in resultObject.occasionTypes" ng-click="getTypeIndex($index)">
-                    {{occasionType.name}}
-                </md-option>
-            </md-select>
+            <span class="error-text">{{errorMessage}}</span>
         </div>
     </div>
 
-    <div layout="row" layout-margin layout-wrap ng-model="typeIndex" ng-show="typeIndex != null">
-        <div flex="30" flex-sm="100" ng-repeat="occasion in resultObject.occasionTypes[typeIndex].occasions"
-             class="gray">
-            <div layout-padding class="blue text-sm">
-                <span>{{occasion.name}}</span>
-            </div>
-            <div layout="row" layout-align="start center">
-                <div layout-padding class="text-sm">
-                    <span>#{{$index + 1}}</span>
-                </div>
-                <div offset="30" layout="column" layout-padding  layout-align="center center">
-                    <img ng-src="{{occasion.imageRep.url || ''}}" class="picture-sm">
-                </div>
-            </div>
+    <div layout="row" layout-wrap layout-margin>
+        <div flex="30" flex-sm="100" ng-repeat="occasionType in resultObject.occasionTypes">
+            <md-list>
+                <md-subheader class="md-no-sticky">{{occasionType.name}}</md-subheader>
+                <md-list-item ng-repeat="occasion in resultObject.occasionTypes[$index].occasions">
+                    <img ng-src="{{occasion.imageRep.url || ''}}" class="md-avatar">
+                    <div class="md-list-item-text">
+                        <p>{{occasion.name}}</p>
+                    </div>
+                </md-list-item>
+            </md-list>
         </div>
     </div>
 

@@ -10,10 +10,8 @@ md-grid-list {
     background: #7f9ff9; }
 .purple {
     background: #b388ff; }
-.red {
-    background: #ff8a80; }
-md-grid-tile {
-    transition: all 400ms ease-out 50ms; }
+.error-text {
+    color: red; }
 
 .material-icons.md-18 {
     font-size: 18px; }
@@ -34,7 +32,6 @@ img.picture-sm {
         margin: 1px;
     }
 }
-
 @media (max-width: 599px) {
     .text-sm {
         font-size: 12px;
